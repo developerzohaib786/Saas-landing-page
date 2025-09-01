@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="180" height="40" 
+     viewBox="0 0 180 40" 
+     fill="none">
+
+  <!-- Icon -->
+  <g transform="translate(0,8)">
+    <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" 
+          stroke="white" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Bold Text -->
+  <text x="40" y="25" 
+        font-family="Arial, sans-serif" 
+        font-size="18" 
+        font-weight="bold" 
+        fill="white">
+    Outside
+  </text>
+</svg>
