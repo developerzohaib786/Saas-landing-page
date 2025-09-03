@@ -10,7 +10,7 @@ const navLinks = [
 
 export default function Navbar() {
     return (
-        <section className="py-4 lg:py-8">
+        <section className="px-4 py-4 lg:py-8 lg:p-16">
             <div className="container">
                 <div className="flex items-center justify-between border border-white/15 rounded-full p-2 px-4 md:pr-2">
 

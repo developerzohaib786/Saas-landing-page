@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="py-24 overflow-x-clip">
+        <section className="px-4 pt-24 overflow-x-clip lg:p-24">
             <div className="container relative">
                 <div className="absolute -left-32 top-16 hidden lg:block">
                     <Image

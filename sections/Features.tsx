@@ -20,7 +20,7 @@ const features = [
 export default function Features() {
 
     return (
-        <section className="p-24 overflow-x-hidden">
+        <section className="px-4 py-24 overflow-x-hidden">
             <div className="container">
                 <div className="justify-center flex">
                                     <Tag>Features</Tag>
@@ -61,7 +61,7 @@ export default function Features() {
                             <Key>C</Key>
                         </div>
                     </FeaturesCard>
-                        <div className="mt-8 flex md:flex-nowrap flex-wrap justify-center items-center gap-3">
+                         <div className="mt-8 flex flex-wrap justify-center items-center gap-3 md:w-7xl">
                             {features.map((feature)=>{
                                 return (
                                     <div key={feature} className="bg-neutral-900 gap-3 items-center md:px-5 rounded-2xl border-white/10 inline-flex px-3 py-1.5 md:py-2 ">
@@ -71,7 +71,6 @@ export default function Features() {
                                 )
                             })}
                         </div>
-
                 </div>
             </div>
         </section>

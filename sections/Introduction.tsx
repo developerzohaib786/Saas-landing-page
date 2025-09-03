@@ -3,7 +3,7 @@ import Tag from "@/components/Tag"
 export default function Introdcution(){
 
 return (
-    <section className="py-28 lg:py-40">
+    <section className="px-2 pt-28 lg:py-40">
     <div className="container">
     <div className="text-4xl md:text-6xl lg:text-7xl text-center font-medium">
         <Tag>Introducing Layers</Tag>
