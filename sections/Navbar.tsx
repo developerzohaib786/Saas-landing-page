@@ -2,6 +2,7 @@
 import Button from "@/components/Button";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { AnimatePresence,motion } from "framer-motion";
 
 const navLinks = [
     { label: 'Home', href: '#' },
@@ -13,9 +14,10 @@ const navLinks = [
 export default function Navbar() {
     const [isOpen, setisOpen] = useState(false);
     return (
-        <section className="px-4 py-4 lg:py-8 lg:p-16 sticky top-0 z-50">
+       <>
+        <section className="px-4 py-4 lg:py-8 lg:p-16 fixed w-full top-0 z-50">
             <div className="container">
-                <div className="bg-neutral-900/70 backdrop-blur border border-white/15 rounded-[27px]">
+                <div className="bg-neutral-900/70 backdrop-blur border border-white/15 rounded-[27px] md:rounded-full">
                     <div className="flex items-center justify-between p-2 px-4 md:pr-2">
 
                         {/* Left: Logo */}
@@ -70,9 +72,9 @@ export default function Navbar() {
                                 onClick={() => setisOpen(!isOpen)}
                                 className="feather feather-menu md:hidden cursor-pointer"
                             >
-                                <line x1={3} y1={12} x2={21} y2={12} className={twMerge('origin-center transition-transform duration-300', isOpen && 'rotate-45 translate-y-0')} />
+                                <line x1={3} y1={12} x2={21} y2={12} className={twMerge('origin-center transition-transform duration-300', isOpen && 'rotate-45 translate-0.5 translate-y-1')} />
                                 <line x1={3} y1={6} x2={21} y2={6} className={twMerge('origin-center transition-all duration-300', isOpen && 'opacity-0 rotate-180')} />
-                                <line x1={3} y1={18} x2={21} y2={18} className={twMerge('origin-center transition-transform duration-300', isOpen && '-rotate-45 ')} />
+                                <line x1={3} y1={18} x2={21} y2={18} className={twMerge('origin-center transition-transform duration-300', isOpen && '-rotate-45')} />
                             </svg>
 
                             {/* Desktop buttons */}
@@ -84,18 +86,28 @@ export default function Navbar() {
                             </Button>
                         </div>
                     </div>
-                    {isOpen && (
-                        <div className="flex flex-col items-center gap-4 py-4">
+                   <AnimatePresence>
+                     {isOpen && (
+                        <motion.div className=" overflow-hidden"
+                        initial={{height:0}}
+                        animate={{height:"auto"}}
+                        exit={{height:0}}
+                        >
+                            <div className="flex flex-col items-center gap-4 py-4">
                             {navLinks.map((i) =>
                                 <a href={i.href} key={i.label} className="">{i.label}</a>
                             )}
                             <Button variant="primary">Log In</Button>
                             <Button variant="secondary">Sign Up</Button>
-                        </div>
+                            </div>
+                        </motion.div>
                     )}
+                   </AnimatePresence>
                 </div>
             </div>
         </section>
+        <div className="pb-[86px] md:pb-[98px] lg-px-[130px]"></div>
+        </>
 
     )
 }

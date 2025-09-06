@@ -1,28 +1,31 @@
+'use client';
 import Button from "@/components/Button";
 import DesignImage1 from '@/assets/images/design-example-1.jpg'
 import DesignImage2 from '@/assets/images/design-example-2.jpg'
 import Pointer from "@/components/Pointer";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
         <section className="px-4 pt-24 overflow-x-clip lg:p-24">
             <div className="container relative">
-                <div className="absolute -left-32 top-16 hidden lg:block">
+                <motion.div className="absolute -left-32 top-16 hidden lg:block">
                     <Image
                     src={DesignImage1}
                     alt='Design Example 1 Image'
                     />
-                </div>
-                <div className="absolute -right-64 -top-16 hidden lg:block">
+                </motion.div>
+                 <motion.div className="absolute left-56 top-96 hidden lg:block">
+                    <Pointer name="Andreas"/>
+                </motion.div>
+                <motion.div className="absolute -right-64 -top-16 hidden lg:block">
                     <Image
                     src={DesignImage2}
                     alt="Design Image Example 2"
                     />
-                </div>
-                <div className="absolute left-56 top-96 hidden lg:block">
-                    <Pointer name="Andreas"/>
-                </div>
+                </motion.div>
+               
                 <div className="absolute right-80 -top-4 hidden lg:block">
                     <Pointer name="Bryne" color="red"/>
                 </div>
