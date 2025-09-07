@@ -6,7 +6,6 @@ import slack_logo from '@/assets/images/slack.png';
 import relume_logo from '@/assets/images/relume.png';
 import framer_logo from '@/assets/images/framer.png';
 import github_logo from '@/assets/images/github.png';
-import Image from 'next/image';
 import IntegrationsColumn from '@/components/IntegrationsColumn';
 
 
@@ -35,7 +34,7 @@ const Integrations = () => {
            <div>
              <div className='h-[400px] lg:h-[800px] overflow-hidden grid md:grid-cols-2 gap-4 [mask-image:linear-gradient(to_bottom,transparent, black_10%, black_90%,transparent)] mt-8 lg:mt-0'>
                <IntegrationsColumn integrations={integrations}/>
-               <IntegrationsColumn integrations={integrations.slice().reverse()}/>
+               <IntegrationsColumn integrations={integrations.slice().reverse()} reverse/>
             </div>
            </div>
           </div>

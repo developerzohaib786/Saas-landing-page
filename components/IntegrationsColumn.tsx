@@ -1,13 +1,24 @@
 import Image from 'next/image';
-import React from 'react'
+import React, { Fragment } from 'react'
 import { type IntegrationType } from '@/sections/Integrations'
 import { twMerge } from 'tailwind-merge';
+import {motion} from 'framer-motion';
 
-const IntegrationsColumn = (props:{integrations:IntegrationType,className?:string,}) => {
-    const {integrations,className}=props;
+const IntegrationsColumn = (props:{integrations:IntegrationType,className?:string,reverse?:boolean}) => {
+    const {integrations,className,reverse}=props;
   return (
-      <div className={twMerge('flex flex-col gap-4 pb-4',className)}>
-                    {integrations.map((i)=>
+      <motion.div
+      initial={{y: reverse ? '-50%' : 0}}
+       animate={{y:reverse ? 0 :"-50%"}}
+        transition={{
+            duration:15,
+            repeat:Infinity,
+            ease:'linear',
+        }}
+      className={twMerge('flex flex-col gap-4 pb-4',className)}>
+                   {Array.from({length:2}).map((_,i)=>(
+                    <Fragment key={i}>
+                         {integrations.map((i)=>
                 <div key={i.name} className='bg-neutral-900 border boder-white/10 rounded-3xl p-6'>
                     <div className='flex justify-center'>
                         <Image src={i.icon} alt={`${i.name} icon`} className='size-24 rounded-2xl'/>
@@ -16,7 +27,9 @@ const IntegrationsColumn = (props:{integrations:IntegrationType,className?:strin
                     <p className='text-center mt-2 text-white/50'>{i.description}</p>
                 </div>
                 )}
-                </div>
+                    </Fragment>
+                   ))}
+                </motion.div>
   )
 }
 
